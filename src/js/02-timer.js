@@ -25,7 +25,6 @@ const fp = flatpickr(refs.dateTimePicker, {
             Notify.failure('Please choose a date in the future');
         } else {
             refs.startButton.removeAttribute('disabled');
-            refs.dateTimePicker.setAttribute('disabled', true);
         }
     },
 });
@@ -33,6 +32,7 @@ const fp = flatpickr(refs.dateTimePicker, {
 
 function onStartButtonClick() {
     refs.startButton.setAttribute('disabled', true);
+    refs.dateTimePicker.setAttribute('disabled', true);
     let startTime = fp.selectedDates[0] - Date.now();
     showTime(startTime);
     intervalId = setInterval(() => {
